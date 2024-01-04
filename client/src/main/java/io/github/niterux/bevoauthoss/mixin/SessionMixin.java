@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.legacyminecraft.authentication.AuthenticationThread;
 
 @Mixin(Session.class)
-public class MinecraftMixin {
+public class SessionMixin {
 
 	@Shadow
 	public String sessionId;

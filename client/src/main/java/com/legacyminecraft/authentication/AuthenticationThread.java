@@ -1,4 +1,5 @@
 package com.legacyminecraft.authentication;
+import com.johnymuffin.evolutions.core.BetaEvolutionsUtils;
 
 public class AuthenticationThread extends Thread {
    private String username;
