@@ -1,14 +1,12 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "com.example.example_mod.mixin",
+	"package": "io.github.niterux.bevoauthoss.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 	],
 	"client": [
-	],
-	"server": [
-		"MinecraftServerMixin"
+		"MinecraftMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
