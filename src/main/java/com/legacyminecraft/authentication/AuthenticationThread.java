@@ -1,15 +1,14 @@
 package com.legacyminecraft.authentication;
 import com.johnymuffin.evolutions.core.BetaEvolutionsUtils;
+import net.minecraft.client.Minecraft;
 
 public class AuthenticationThread extends Thread {
-   private String username;
-   private String sessionID;
-   private String mojangAuthURL;
+   private final String username;
+   private final String sessionID;
 
    public AuthenticationThread(String username, String sessionID) {
       this.username = username;
       this.sessionID = sessionID;
-      this.mojangAuthURL = this.mojangAuthURL;
    }
 
    @Override
@@ -29,6 +28,9 @@ public class AuthenticationThread extends Thread {
                      + ", Total: "
                      + results.getTotal()
                );
+			if(results.getFailed() == results.getTotal()){
+				Minecraft.sessionErrorTime = System.currentTimeMillis();
+			}
          } catch (Exception var4) {
             System.out.println("An error occurred authing with Beta Evolutions: ");
             var4.printStackTrace();
@@ -36,7 +38,7 @@ public class AuthenticationThread extends Thread {
 
          try {
             Thread.sleep(86400000L);
-         } catch (InterruptedException var3) {
+         } catch (InterruptedException ignored) {
          }
       }
    }
